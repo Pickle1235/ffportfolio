@@ -1,0 +1,48 @@
+.right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-column .row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vw;
+    height: 2vw;
+}
+
+.right-column .icon {
+    color: white;
+}
+
+.right-column .icon:hover {
+    opacity: 0.8;
+}
+
+.right-column .icon svg {
+    font-size: 2vw;
+}
+
+.right-column .line {
+    margin: 0;
+    width: 100%;
+    border: none;
+    height: 0.1vh;
+    background-color: #ffffff;
+}
+
+.right-column .select-rows {
+    line-height:3.5vh;
+    text-align: left;
+}
+
+.right-column .select-rows a {
+    text-align: left;
+}
+
+    .right-column .select-rows a:hover {
+        opacity: 0.8;
+    }
+
+.width-80 {
+    width: 80%;
+}

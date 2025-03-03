@@ -1,0 +1,21 @@
+.left-column {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 3vw;
+    gap: 3vh;
+}
+
+.tabbed-text {
+    padding-left: 2vw;
+}
+
+.no-hyperlink-style {
+    text-decoration: none;
+    cursor: url('../assets/xivcursor3.svg') 10 10, auto;
+    color: white;
+}
+
+.left-column .row .clickable:hover {
+    opacity: 0.8;
+}
