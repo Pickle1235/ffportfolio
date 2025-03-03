@@ -1,3 +1,4 @@
+import '../css/DraggableWindow.css'
 import * as React from "react";
 import { useState, useRef } from "react";
 import closeButton from '../assets/close.png';
