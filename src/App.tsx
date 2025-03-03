@@ -61,6 +61,7 @@ function App() {
 
   function onClickCloseWindow() {
     setWindowContent([]);
+    setContentType('');
     if (!muted) {
       playCloseSound();
     }
