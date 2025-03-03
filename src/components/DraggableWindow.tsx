@@ -1,5 +1,5 @@
 import '../css/DraggableWindow.css'
-import React from "react";
+import * as React from "react";
 import { useState, useRef } from "react";
 import closeButton from '../assets/close.png';
 import useWindowDimensions from '../utils/useWindowDimensions';
@@ -52,15 +52,8 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent, mut
     };
   }, [isDragging])
 
-  const renderTexts = (): JSX.Element[] => {
-    const elements: JSX.Element[] = [];
-
-    for (let i = 0; i < windowContent.length; i++) {
-      elements.push(<p key={i}>{windowContent[i]}</p>);
-      console.log(windowContent[i]);
-    }
-
-    return elements;
+  const renderTexts = (): React.ReactNode => {
+    return windowContent.map((windowContent, i) => <p key={i}>{windowContent}</p>);
   };
 
   return (

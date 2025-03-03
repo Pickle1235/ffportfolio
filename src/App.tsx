@@ -6,7 +6,7 @@ import './css/App.css'
 import './fonts/eurostar.ttf'
 import './fonts/trump.ttf'
 import './fonts/meiryo.ttf'
-import { playClickSound, playClickSoundTwo } from "./utils/soundPlayer";
+import { playClickSound, playClickSoundTwo, playCloseSound } from "./utils/soundPlayer";
 import musicSoundFile from "./assets/music.mp3";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   const summaryText : string[] = 
   ['My name is Peter An.', ''];
 
-  const audioRef = useRef();
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [muted, setMuted] = useState<boolean>(true);
@@ -24,11 +24,13 @@ function App() {
   const [contentType, setContentType] = useState('summary');
 
   function onChangeMuted(muted: boolean) {
-    if (muted) {
-      audioRef.current.pause();
-    }
-    else {
-      audioRef.current.play();
+    if (audioRef.current) {
+      if (muted) {
+        audioRef.current.pause();
+      }
+      else {
+        audioRef.current.play();
+      }
     }
     setMuted(muted);
   }
@@ -67,9 +69,8 @@ function App() {
   return (
     <div className='blue-background'>
       <audio
-        controls = "controls"
+        controls
         preload = "auto"
-        autobuffer = "true"
         style = {{display: "none"}}
         ref = {audioRef}
         loop
