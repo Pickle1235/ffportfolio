@@ -1,6 +1,6 @@
-.window {
+.window-mobile {
     position: absolute;
-    width: 30vw;
+    width: 80vw;
     height: 60vh;
     background-color: #302b31;
     border-radius: 0.2vw;
@@ -13,7 +13,7 @@
     z-index: 5;
 }
 
-.drag-bar {
+.drag-bar-mobile {
     color: none;
     width: 100%;
     height: 3vh;
@@ -21,7 +21,7 @@
     padding: 0;
 }
 
-.text-area {
+.text-area-mobile {
     margin-right: 0.36vw;
     height: calc(100% - 4vw);
     padding-left: 1vw;
@@ -30,27 +30,27 @@
     overflow-y: scroll;
 }
 
-.text-area p {
+.text-area-mobile p {
     padding: 0;
     margin: 0;
     margin-bottom: 1vh;
 }
 
-.text-area::-webkit-scrollbar {
+.text-area-mobile::-webkit-scrollbar {
     width: 0.5vw;
 }
 
-.text-area::-webkit-scrollbar-track {
+.text-area-mobile::-webkit-scrollbar-track {
     background: #706473;
     border-radius: 1vw;
 }
 
-.text-area::-webkit-scrollbar-thumb {
+.text-area-mobile::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 1vw;
 }
 
-.close-window-button {
+.close-window-button-mobile {
     background-color: none;
     position: absolute;
     right: 0.1vw;
@@ -62,7 +62,7 @@
 }
 
 
-.line-container {
+.line-container-mobile {
     margin-left: 0.5vw;
     margin-right: 0.5vw;
     position: relative;
@@ -72,7 +72,7 @@
     background-color: #2b242e; /* Dark background similar to the UI */
 }
 
-.line2 {
+.line2-mobile {
     position: absolute;
     top: 50%;
     left: 0;
@@ -82,7 +82,7 @@
     transform: translateY(-50%);
 }
 
-.glow {
+.glow-mobile {
     position: absolute;
     top: 50%;
     left: 0;

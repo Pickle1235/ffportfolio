@@ -45,8 +45,8 @@ export default function RightColumn({ onClickContentType, onChangeMuted, content
                     {contentType == 'education' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('education')}>Education</a>}
                 </div>}
                 {!isAboutMe && <div>
-                    {contentType != 'ace' && <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>Ace Rent A Car</a>}
-                    {contentType == 'ace' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>Ace Rent A Car</a>}
+                    {contentType != 'ace' && <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>ACE Rent A Car</a>}
+                    {contentType == 'ace' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('ace')}>ACE Rent A Car</a>}
                     <br/>
                     {contentType != 'athleda' && <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('athleda')}>The athLEDA Foundation</a>}
                     {contentType == 'athleda' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onClickContentType?.('athleda')}>The athLEDA Foundation</a>}

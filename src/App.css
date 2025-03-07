@@ -8,11 +8,11 @@
 }
 
 body {
-  cursor: url('../assets/xivcursor3.svg') 10 10, auto;
+  cursor: url('./assets/xivcursor3.svg') 10 10, auto;
 }
 
 button {
-  cursor: url('../assets/xivcursor3.svg') 10 10, auto;
+  cursor: url('./assets/xivcursor3.svg') 10 10, auto;
 }
 
 
@@ -47,6 +47,17 @@ button {
   min-height: 1px;
   width: fit-content;
   padding-top: 5vh;
+  font-size: 1vw;
+}
+
+.main-mobile {
+  display:flex;
+  flex-direction: column;
+  min-width: 100%;
+  width: 100%;
+  min-height: 1px;
+  width: fit-content;
+  padding-top: 3vh;
   font-size: 1vw;
 }
 
@@ -112,5 +123,15 @@ button {
 
 .loading-text {
   font-size: 2vw;
+}
 
+.top-mobile {
+  position: relative;
+  min-height: 3vh;
+  width: 100%;
+}
+
+.main-column-mobile {
+  margin-top: 2vh;
+  position: relative;
 }

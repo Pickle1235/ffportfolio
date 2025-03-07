@@ -1,4 +1,4 @@
-.left-column {
+.main-column-mobile {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -6,15 +6,15 @@
     gap: 3vh;
 }
 
-.left-column .row .clickable:hover {
+.main-column-mobile .row .clickable:hover {
     opacity: 0.8;
 }
 
-.tabbed-text {
+.tabbed-text-mobile {
     padding-left: 2vw;
 }
 
-.no-hyperlink-style {
+.no-hyperlink-style-mobile {
     text-decoration: none;
     cursor: url('./assets/xivcursor3.svg') 10 10, auto;
     color: white;

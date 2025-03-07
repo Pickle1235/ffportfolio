@@ -1,4 +1,4 @@
-import '../css/Window.css'
+import '../css-mobile/Window.css'
 import * as React from "react";
 import { useState, useRef } from "react";
 import closeButton from '../assets/close.png';
@@ -58,21 +58,21 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent, mut
 
   return (
     <div 
-        className="window"     
+        className="window-mobile"     
         style={{
           left: position.x,
           top: position.y,
         }}
     >
-      <div className="drag-bar" onMouseDown={handleMouseDown}/>
-      <img className="close-window-button" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
-      
-      <div className="line-container">
-        <div className="glow"/>
-        <div className="line"/>
+      <div className="drag-bar-mobile" onMouseDown={handleMouseDown}/>
+      <img className="close-window-button-mobile" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
+
+      <div className="line-container-mobile">
+        <div className="glow-mobile"/>
+        <div className="line2-mobile"/>
       </div>
-      
-      <div className="meiryo text-area">
+
+      <div className="meiryo text-area-mobile">
         {renderTexts()}
       </div>
     </div>
