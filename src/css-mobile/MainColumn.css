@@ -1,21 +1,23 @@
 .main-column-mobile {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    padding-left: 3vw;
-    gap: 3vh;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 3vw;
+  gap: 3vh;
 }
 
 .main-column-mobile .row .clickable:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .tabbed-text-mobile {
-    padding-left: 2vw;
+  padding-left: 2vw;
 }
 
 .no-hyperlink-style-mobile {
-    text-decoration: none;
-    cursor: url('./assets/xivcursor3.svg') 10 10, auto;
-    color: white;
+  text-decoration: none;
+  cursor:
+    url('./assets/xivcursor3.svg') 10 10,
+    auto;
+  color: white;
 }

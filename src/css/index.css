@@ -13,7 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 body {
   margin: 0;
   display: flex;
@@ -72,7 +71,6 @@ button:focus-visible {
   font-family: 'meiryo';
   src: local('meiryo'), url(../fonts/meiryo.ttf);
 }
-
 
 video {
   width: 100%;

@@ -1,21 +1,33 @@
-import '../css/Window.css'
-import * as React from "react";
-import { useState, useRef } from "react";
+import '../css/Window.css';
+import * as React from 'react';
+import { useState, useRef } from 'react';
 import closeButton from '../assets/close.png';
 import useWindowDimensions from '../utils/useWindowDimensions';
-import { playHoverSound } from "../utils/soundPlayer";
+import { playHoverSound } from '../utils/soundPlayer';
 
-export default function DraggableWindow({ onClickCloseWindow, windowContent, windowTitle, muted } : { onClickCloseWindow? : () => void, windowContent : string[], windowTitle : string, muted : boolean }) {
+export default function DraggableWindow({
+  onClickCloseWindow,
+  windowContent,
+  windowTitle,
+  muted,
+}: {
+  onClickCloseWindow?: () => void;
+  windowContent: string[];
+  windowTitle: string;
+  muted: boolean;
+}) {
   const { height, width } = useWindowDimensions();
-  const [position, setPosition] = useState({ x: width / 2 - (width * 0.306 / 2), y: height / 2 - ((height * 0.6 + width * 0.006) / 2)});
+  const [position, setPosition] = useState({
+    x: width / 2 - (width * 0.306) / 2,
+    y: height / 2 - (height * 0.6 + width * 0.006) / 2,
+  });
   const [isDragging, setIsDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0 });
 
-
   function onHover() {
-      if (!muted) {
-          playHoverSound()
-      }
+    if (!muted) {
+      playHoverSound();
+    }
   }
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -23,60 +35,66 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent, win
     dragStart.current = {
       x: e.clientX - position.x,
       y: e.clientY - position.y,
-    }
-  }
+    };
+  };
 
   const handleMouseMove = (e: MouseEvent) => {
     if (!isDragging) return;
     setPosition({
       x: e.clientX - dragStart.current.x,
       y: e.clientY - dragStart.current.y,
-    })
-  }
+    });
+  };
 
   const handleMouseUp = () => {
     setIsDragging(false);
-  }
+  };
 
   React.useEffect(() => {
     if (isDragging) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
     } else {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
     }
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isDragging])
+  }, [isDragging]);
 
   const renderTexts = (): React.ReactNode => {
-    return windowContent.map((windowContent, i) => <p key={i}>{windowContent}</p>);
+    return windowContent.map((windowContent, i) => (
+      <p key={i} className={i ? 'extra-margin' : ''}>
+        {windowContent}
+      </p>
+    ));
   };
 
   return (
-    <div 
-        className="window"     
-        style={{
-          left: position.x,
-          top: position.y,
-        }}
+    <div
+      className="window"
+      style={{
+        left: position.x,
+        top: position.y,
+      }}
     >
       <div className="drag-bar" onMouseDown={handleMouseDown}>
         <a className="trump grey-text">{windowTitle}</a>
-        <img onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
+        <img
+          onMouseEnter={() => onHover()}
+          onClick={onClickCloseWindow}
+          src={closeButton}
+        ></img>
       </div>
-      
+
       <div className="line-container">
-        <div className="glow"/>
-        <div className="line"/>
+        <div className="glow" />
+        <div className="line" />
       </div>
-      
-      <div className="meiryo text-area">
-        {renderTexts()}
-      </div>
+
+      <div className="meiryo text-area">{renderTexts()}</div>
     </div>
-  )
+  );
 }

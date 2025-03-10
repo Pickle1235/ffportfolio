@@ -8,12 +8,14 @@ interface WindowDimensions {
 function getWindowDimensions(): WindowDimensions {
   return {
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
   };
 }
 
 export default function useWindowDimensions(): WindowDimensions {
-  const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>(getWindowDimensions());
+  const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>(
+    getWindowDimensions(),
+  );
 
   useEffect(() => {
     function handleResize() {
