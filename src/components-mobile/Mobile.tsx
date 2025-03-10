@@ -3,8 +3,8 @@ import TopMenu from './TopMenu.tsx'
 import MainColumn from './MainColumn.tsx'
 import DraggableWindowMobile from './DraggableWindowMobile.tsx'
 
-export default function Mobile({ onClickCloseWindow, windowContent, muted, loading, onClickContentType, onChangeMuted, contentType } : 
-                                { onClickCloseWindow? : () => void, windowContent : string[], muted : boolean, loading : boolean, 
+export default function Mobile({ onClickCloseWindow, windowContent, windowTitle, muted, loading, onClickContentType, onChangeMuted, contentType } : 
+                                { onClickCloseWindow? : () => void, windowContent : string[], windowTitle : string, muted : boolean, loading : boolean, 
                                 onClickContentType? : (type: string) => void, onChangeMuted? : (type: boolean) => void, contentType : string }) {
     return (
         <div className='mobile-div'>
@@ -35,9 +35,10 @@ export default function Mobile({ onClickCloseWindow, windowContent, muted, loadi
                     {
                         windowContent.length > 0 && 
                         <DraggableWindowMobile
-                        muted={muted}
-                        onClickCloseWindow={onClickCloseWindow}
-                        windowContent={windowContent}
+                            muted={muted}
+                            onClickCloseWindow={onClickCloseWindow}
+                            windowContent={windowContent}
+                            windowTitle = {windowTitle}
                         />
                     }
             </div>}

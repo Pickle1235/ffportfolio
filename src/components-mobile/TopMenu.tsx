@@ -34,9 +34,9 @@ export default function TopMenu({ onClickContentType, onChangeMuted, contentType
             </div>
             {isMenuOpen &&
                 <div className="select-window-mobile width-80-mobile">
-                    <div>
+                    <div className="bruh">
                         {isAboutMe && 
-                            <div>
+                            <div className="bruh">
                                 {contentType != 'summary' && <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onSelect('summary')}>Summary</a>}
                                 {contentType == 'summary' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onSelect('summary')}>Summary</a>}
                                 <br/>
@@ -45,7 +45,7 @@ export default function TopMenu({ onClickContentType, onChangeMuted, contentType
                             </div>
                         }
                         {!isAboutMe && 
-                            <div>
+                            <div className="bruh">
                                 {contentType != 'ace' && <a className="select trump blue-border white-text" onMouseEnter={() => onHover()} onClick={() => onSelect('ace')}>Ace Rent A Car</a>}
                                 {contentType == 'ace' && <a className="select trump green-border white-text" onMouseEnter={() => onHover()} onClick={() => onSelect('ace')}>Ace Rent A Car</a>}
                                 <br/>

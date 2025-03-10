@@ -103,6 +103,10 @@ button {
   color: black;
 }
 
+.grey-text {
+  color: #dfdae0;
+}
+
 .blue-background {
   background-color: #17515f;
   width: 100%;

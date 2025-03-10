@@ -36,6 +36,7 @@ function App() {
 
   const [muted, setMuted] = useState<boolean>(true);
   const [windowContent, setWindowContent] = useState<string[]>(summaryText);
+  const [windowTitle, setWindowTitle] = useState<string>('Summary');
 
   const [isMobile, setIsMobile] = useState(false)
  
@@ -81,15 +82,19 @@ function App() {
     switch (type) {
         case 'athleda':
           setWindowContent(athledaText);
+          setWindowTitle('The athLEDA Foundation');
           break;
         case 'ace':
           setWindowContent(aceText);
+          setWindowTitle('ACE Rent A Car');
           break;
         case 'education':
           setWindowContent(educationText);
+          setWindowTitle('Education');
           break;
         case 'summary':
           setWindowContent(summaryText);
+          setWindowTitle('Summary');
           break;
     }
     if (!muted && !windowContent) {
@@ -127,6 +132,7 @@ function App() {
         <Mobile
           onClickCloseWindow = {onClickCloseWindow}
           windowContent = {windowContent}
+          windowTitle = {windowTitle}
           muted = {muted}
           loading = {loading}
           onClickContentType = {onClickContentType}
@@ -138,6 +144,7 @@ function App() {
         <Desktop
           onClickCloseWindow = {onClickCloseWindow}
           windowContent = {windowContent}
+          windowTitle = {windowTitle}
           muted = {muted}
           loading = {loading}
           onClickContentType = {onClickContentType}

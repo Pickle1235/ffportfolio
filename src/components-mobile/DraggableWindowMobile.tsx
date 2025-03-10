@@ -5,12 +5,11 @@ import closeButton from '../assets/close.png';
 import useWindowDimensions from '../utils/useWindowDimensions';
 import { playHoverSound } from "../utils/soundPlayer";
 
-export default function DraggableWindow({ onClickCloseWindow, windowContent, muted } : { onClickCloseWindow? : () => void, windowContent : string[], muted : boolean }) {
+export default function DraggableWindow({ onClickCloseWindow, windowContent, windowTitle, muted } : { onClickCloseWindow? : () => void, windowContent : string[], windowTitle : string, muted : boolean }) {
   const { height, width } = useWindowDimensions();
-  const [position, setPosition] = useState({ x: width / 2 - (width * 0.306 / 2), y: height / 2 - ((height * 0.6 + width * 0.006) / 2)});
+  const [position, setPosition] = useState({ x: width / 2 - (width * 0.8 / 2), y: height / 2 - ((height * 0.6 + width * 0.006) / 2)});
   const [isDragging, setIsDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0 });
-
 
   function onHover() {
       if (!muted) {
@@ -64,15 +63,16 @@ export default function DraggableWindow({ onClickCloseWindow, windowContent, mut
           top: position.y,
         }}
     >
-      <div className="drag-bar-mobile" onMouseDown={handleMouseDown}/>
-      <img className="close-window-button-mobile" onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
-
+      <div className="drag-bar-mobile" onMouseDown={handleMouseDown}>
+        <a className="trump grey-text">{windowTitle}</a>
+        <img onMouseEnter={() => onHover()} onClick={onClickCloseWindow} src={closeButton}></img>
+      </div>
       <div className="line-container-mobile">
         <div className="glow-mobile"/>
         <div className="line2-mobile"/>
       </div>
 
-      <div className="meiryo text-area-mobile">
+      <div className="meiryo grey-text text-area-mobile">
         {renderTexts()}
       </div>
     </div>

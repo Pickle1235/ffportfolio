@@ -2,8 +2,8 @@ import RightColumn from './RightColumn.tsx'
 import LeftColumn from './LeftColumn.tsx'
 import DraggableWindow from './DraggableWindow.tsx'
 
-export default function Desktop({ onClickCloseWindow, windowContent, muted, loading, onClickContentType, onChangeMuted, contentType } : 
-                                { onClickCloseWindow? : () => void, windowContent : string[], muted : boolean, loading : boolean, 
+export default function Desktop({ onClickCloseWindow, windowContent, windowTitle, muted, loading, onClickContentType, onChangeMuted, contentType } : 
+                                { onClickCloseWindow? : () => void, windowContent : string[], windowTitle : string, muted : boolean, loading : boolean, 
                                     onClickContentType? : (type: string) => void, onChangeMuted? : (type: boolean) => void, contentType : string }) {
     return (
         <div>
@@ -24,17 +24,18 @@ export default function Desktop({ onClickCloseWindow, windowContent, muted, load
                     {
                         windowContent.length > 0 && 
                         <DraggableWindow
-                        muted={muted}
-                        onClickCloseWindow={onClickCloseWindow}
-                        windowContent={windowContent}
+                            muted={muted}
+                            onClickCloseWindow={onClickCloseWindow}
+                            windowContent={windowContent}
+                            windowTitle={windowTitle}
                         />
                     }
                     <div className="right">
                         <RightColumn
-                        muted={muted}
-                        onChangeMuted={onChangeMuted}
-                        onClickContentType={onClickContentType}
-                        contentType={contentType}
+                            muted={muted}
+                            onChangeMuted={onChangeMuted}
+                            onClickContentType={onClickContentType}
+                            contentType={contentType}
                         />
                     </div>
                 </div>

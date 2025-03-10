@@ -59,5 +59,13 @@
     background-color: rgba(122, 122, 122, 0.5);
     top: 100%;
     font-size: 2rem;
-    padding: 1rem;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    z-index: 10;
 }
+
+    .select-window-mobile .select {
+        font-size: 6vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
