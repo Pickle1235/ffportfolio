@@ -1,11 +1,10 @@
 import '../css-mobile/Window.css';
-import * as React from 'react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import closeButton from '../assets/close.png';
 import useWindowDimensions from '../utils/useWindowDimensions';
 import { playHoverSound } from '../utils/soundPlayer';
 
-export default function DraggableWindow({
+export default function DraggableWindowMobile({
   onClickCloseWindow,
   windowContent,
   windowTitle,
@@ -17,12 +16,14 @@ export default function DraggableWindow({
   muted: boolean;
 }) {
   const { height, width } = useWindowDimensions();
+
+  const dragStart = useRef({ x: 0, y: 0 });
+  const isDragging = useRef(false);
+
   const [position, setPosition] = useState({
     x: width / 2 - (width * 0.8) / 2,
     y: height / 2 - (height * 0.6 + width * 0.006) / 2,
   });
-  const [isDragging, setIsDragging] = useState(false);
-  const dragStart = useRef({ x: 0, y: 0 });
 
   function onHover() {
     if (!muted) {
@@ -30,77 +31,80 @@ export default function DraggableWindow({
     }
   }
 
+  const updatePosition = useCallback((x: number, y: number) => {
+    if (!isDragging.current) return;
+    setPosition({ x: x - dragStart.current.x, y: y - dragStart.current.y });
+  }, []);
+
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      updatePosition(e.clientX, e.clientY);
+    },
+    [updatePosition],
+  );
+
+  const handleTouchMove = useCallback(
+    (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        updatePosition(touch.clientX, touch.clientY);
+      }
+    },
+    [updatePosition],
+  );
+
+  const handleEnd = useCallback(() => {
+    isDragging.current = false;
+  }, []);
+
+  const handleStart = useCallback(
+    (x: number, y: number) => {
+      isDragging.current = true;
+      dragStart.current = {
+        x: x - position.x,
+        y: y - position.y,
+      };
+    },
+    [position],
+  );
+
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    setIsDragging(true);
-    dragStart.current = {
-      x: e.clientX - position.x,
-      y: e.clientY - position.y,
-    };
+    handleStart(e.clientX, e.clientY);
   };
+
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    setIsDragging(true);
+    const touch = e.touches[0];
+    handleStart(touch.clientX, touch.clientY);
+  };
 
-    const touch = e.touches[0]; // Get the first touch point
-
-    dragStart.current = {
-      x: touch.clientX - position.x,
-      y: touch.clientY - position.y,
+  useEffect(() => {
+    const moveHandler = (e: MouseEvent | TouchEvent) => {
+      if (e instanceof MouseEvent) {
+        handleMouseMove(e);
+      } else if (e instanceof TouchEvent) {
+        handleTouchMove(e);
+      }
     };
-  };
 
-  const handleMove = (x: number, y: number) => {
-    if (!isDragging) return;
-    setPosition({
-      x: x - dragStart.current.x,
-      y: y - dragStart.current.y,
-    });
-  };
+    const endHandler = () => handleEnd();
 
-  const handleMouseMove = (e: MouseEvent) => {
-    handleMove(e.clientX, e.clientY);
-  };
-
-  const handleTouchMove = (e: TouchEvent) => {
-    if (e.touches.length > 0) {
-      const touch = e.touches[0];
-      handleMove(touch.clientX, touch.clientY);
-    }
-  };
-
-  const handleEnd = () => {
-    setIsDragging(false);
-  };
-
-  React.useEffect(() => {
-    if (isDragging) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleEnd);
-
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleEnd);
-      window.addEventListener('touchcancel', handleEnd);
-    } else {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleEnd);
-
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleEnd);
-      window.removeEventListener('touchcancel', handleEnd);
-    }
+    window.addEventListener('mousemove', moveHandler, { passive: true });
+    window.addEventListener('mouseup', endHandler, { passive: true });
+    window.addEventListener('touchmove', moveHandler, { passive: true });
+    window.addEventListener('touchend', endHandler, { passive: true });
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleEnd);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleEnd);
-      window.removeEventListener('touchcancel', handleEnd);
+      window.removeEventListener('mousemove', moveHandler);
+      window.removeEventListener('mouseup', endHandler);
+      window.removeEventListener('touchmove', moveHandler);
+      window.removeEventListener('touchend', endHandler);
     };
-  }, [isDragging]);
+  }, [handleMouseMove, handleTouchMove, handleEnd]);
 
   const renderTexts = (): React.ReactNode => {
-    return windowContent.map((windowContent, i) => (
+    return windowContent.map((content, i) => (
       <p key={i} className={i ? 'extra-margin' : ''}>
-        {windowContent}
+        {content}
       </p>
     ));
   };
@@ -111,6 +115,7 @@ export default function DraggableWindow({
       style={{
         left: position.x,
         top: position.y,
+        touchAction: 'none', // Prevents unintended scrolling on touch devices
       }}
     >
       <div
@@ -120,10 +125,11 @@ export default function DraggableWindow({
       >
         <a className="trump grey-text">{windowTitle}</a>
         <img
-          onMouseEnter={() => onHover()}
+          onMouseEnter={onHover}
           onClick={onClickCloseWindow}
           src={closeButton}
-        ></img>
+          alt="Close"
+        />
       </div>
       <div className="line-container-mobile">
         <div className="glow-mobile" />
