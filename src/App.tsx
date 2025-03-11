@@ -14,23 +14,23 @@ import musicSoundFile from './assets/music.mp3';
 
 function App() {
   const athledaText: string[] = [
-    'My first job out of college was with the athLEDA Foundation, a startup company whose mission is to help student athletes with their future. Not all student athletes end up playing professionally after graduating, so the company sets up the students with mentors to help guide them to an alternative future.',
-    'My title was Full Stack Developer, but my duty also included some DevOps work. I was the only primary developer and IT worker for the company, and I built the website, server, and the database while also managing the server and infrastructure using AWS.',
-    "I had to learn a lot to meet the CEO's requirements, but without a mentor at the company to guide me, it was challenging. However, this experience taught me to be an independent developer, capable of quickly adapting to new technologies without relying on others.",
+    'My first job after graduating was with the athLEDA Foundation, a startup dedicated to helping student-athletes navigate their careers beyond sports. Since not all athletes turn professional, the company connects them with mentors to explore alternative career paths after graduation.',
+    'As a Full Stack Developer, I was the sole developer and IT specialist for the company. I built the website, backend server, and database while also handling DevOps tasks, including server and infrastructure management using AWS.',
+    'Meeting the CEO’s requirements required me to learn quickly and adapt to new technologies. Without a mentor to guide me, I had to rely on self-learning and problem-solving to deliver results. This experience strengthened my ability to work independently, quickly adapt to new challenges, and take ownership of complex technical projects.',
   ];
   const aceText: string[] = [
-    'I currently work for ACE Rent A Car in pricing software development team. My title is .NET Developer, but I also write SQL queries and frontend pages in Blazor as much as I write backend codes in C#.',
-    'In this position, I learned how to learn a large code written by other people, maintain old code, add new features, and work closely with the management.',
+    'I currently work as a .NET Developer at ACE Rent A Car, where I contribute to the Pricing Software Development team. While my primary focus is backend development in C#, I also write SQL queries and develop frontend pages using Blazor.',
+    'In this role, I have gained experience working with large, complex codebases—learning how to read, maintain, and enhance existing code while implementing new features. I also collaborate closely with management to ensure that our solutions align with business needs.',
+    'Working with a system that processes hundreds of millions of data points daily has strengthened my ability to write optimized, high-performance SQL queries. I have developed a keen eye for efficiency, ensuring that data retrieval and processing are both fast and scalable to meet business demands.',
   ];
   const educationText: string[] = [
-    'I graduated from Purdue University in May of 2022 with a degree in Computer Science. I formed amazing friendships and learned valuable lessons during my time at Purdue.',
-    "My favorite course was one of the last requirements for my degree: Software Engineering Senior Project. In that class, I got to work with 5 other classmates in a project of our choosing. Even though I did not know anything about these guys, I couldn't have asked for better teammates.",
-    "We were allowed to create any software we wanted, and everyone agreed to go with my idea: BoilerPlate, a website to improve Purdue students' dining experience. It was a website where students could come review food from the dining courts and share their experience in live comment section.",
-    'We used agile methodology to split work evenly and manage our project. Even though we were not able to finish our project, we were happy with what we were able to do in four months, and I learned how to work as a team that supports each other.',
+    'I graduated from Purdue University in May 2022 with a degree in Computer Science. During my time at Purdue, I built lasting friendships and gained invaluable experience that shaped my growth as a developer.',
+    'One of the most impactful courses I took was the Software Engineering Senior Project, where I collaborated with five classmates on a project of our choosing. Despite not knowing each other initially, we quickly formed a strong, cohesive team.',
+    "We decided to build BoilerPlate, a website designed to enhance Purdue students' dining experience. The platform allowed students to review dining court meals and share real-time feedback in a live comment section. Using agile methodology, we effectively managed our tasks and responsibilities. Although we didn’t fully complete the project within the semester, we were proud of what we achieved in just four months. More importantly, I learned the value of teamwork, adaptability, and supporting one another in a collaborative environment.",
   ];
   const summaryText: string[] = [
-    'My name is Peter An. I am a software developer specialized in full stack development. You can ask me to build a fast back end server, develop a user friendly mobile application, create a responsive website, or write an efficient SQL query. I can do them all.',
-    'I love programming, technology, and gaming. I enjoy what I do for living, I like my folding phone (great for watching videos and taking notes!), and my favorite game is Final Fantasy XIV (it inspired the design of this website).',
+    'Hello, my name is Peter An. I am a software developer specializing in full-stack development. Whether you need a high-performance backend server, a user-friendly mobile application, a responsive website, or an optimized SQL query, I can deliver efficient and scalable solutions.',
+    'I have a deep passion for programming, technology, and gaming. I take pride in my work and enjoy staying up-to-date with the latest advancements in the industry. In my free time, I love exploring new tech, using my folding phone (perfect for productivity and entertainment), and playing Final Fantasy XIV—a game that even inspired the design of this website.',
   ];
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
