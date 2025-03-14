@@ -61,11 +61,6 @@ function App() {
   }, []);
 
   async function readyPage() {
-    if (window.innerWidth / window.innerHeight < 0.8) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
     setLoading(false);
   }
 
@@ -115,6 +110,14 @@ function App() {
       playCloseSound();
     }
   }
+
+  useEffect(() => {
+    if (window.innerWidth / window.innerHeight < 0.8) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, []);
 
   return (
     <div className="blue-background">
