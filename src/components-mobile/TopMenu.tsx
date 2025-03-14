@@ -124,22 +124,22 @@ export default function TopMenu({
                   </a>
                 )}
                 <br />
-                {contentType != 'athleda' && (
+                {contentType != 'alfreeda' && (
                   <a
                     className="select trump blue-border white-text"
                     onMouseEnter={() => onHover()}
-                    onClick={() => onSelect('athleda')}
+                    onClick={() => onSelect('alfreeda')}
                   >
-                    The athLEDA Foundation
+                    The Alfreeda Foundation
                   </a>
                 )}
-                {contentType == 'athleda' && (
+                {contentType == 'alfreeda' && (
                   <a
                     className="select trump green-border white-text"
                     onMouseEnter={() => onHover()}
-                    onClick={() => onSelect('athleda')}
+                    onClick={() => onSelect('alfreeda')}
                   >
-                    The athLEDA Foundation
+                    The Alfreeda Foundation
                   </a>
                 )}
               </div>

@@ -127,22 +127,22 @@ export default function RightColumn({
               </a>
             )}
             <br />
-            {contentType != 'athleda' && (
+            {contentType != 'alfreeda' && (
               <a
                 className="trump blue-border white-text"
                 onMouseEnter={() => onHover()}
-                onClick={() => onClickContentType?.('athleda')}
+                onClick={() => onClickContentType?.('alfreeda')}
               >
-                The athLEDA Foundation
+                The Alfreeda Foundation
               </a>
             )}
-            {contentType == 'athleda' && (
+            {contentType == 'alfreeda' && (
               <a
                 className="trump green-border white-text"
                 onMouseEnter={() => onHover()}
-                onClick={() => onClickContentType?.('athleda')}
+                onClick={() => onClickContentType?.('alfreeda')}
               >
-                The athLEDA Foundation
+                The Alfreeda Foundation
               </a>
             )}
           </div>

@@ -13,8 +13,8 @@ import {
 import musicSoundFile from './assets/music.mp3';
 
 function App() {
-  const athledaText: string[] = [
-    'My first job after graduating was with the athLEDA Foundation, a startup dedicated to helping student-athletes navigate their careers beyond sports. Since not all athletes turn professional, the company connects them with mentors to explore alternative career paths after graduation.',
+  const alfreedaText: string[] = [
+    'My first job after graduating was with the Alfreeda Goff Foundation, a startup dedicated to helping student-athletes navigate their careers beyond sports. Since not all athletes turn professional, the company connects them with mentors to explore alternative career paths after graduation.',
     'As a Full Stack Developer, I was the sole developer and IT specialist for the company. I built the website, backend server, and database while also handling DevOps tasks, including server and infrastructure management using AWS.',
     'Meeting the CEO’s requirements required me to learn quickly and adapt to new technologies. Without a mentor to guide me, I had to rely on self-learning and problem-solving to deliver results. This experience strengthened my ability to work independently, quickly adapt to new challenges, and take ownership of complex technical projects.',
   ];
@@ -78,9 +78,9 @@ function App() {
   function onClickContentType(type: string) {
     setContentType(type);
     switch (type) {
-      case 'athleda':
-        setWindowContent(athledaText);
-        setWindowTitle('The athLEDA Foundation');
+      case 'alfreeda':
+        setWindowContent(alfreedaText);
+        setWindowTitle('The Alfreeda Goff Foundation');
         break;
       case 'ace':
         setWindowContent(aceText);
