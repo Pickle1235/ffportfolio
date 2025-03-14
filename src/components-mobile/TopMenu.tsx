@@ -130,7 +130,7 @@ export default function TopMenu({
                     onMouseEnter={() => onHover()}
                     onClick={() => onSelect('alfreeda')}
                   >
-                    The Alfreeda Foundation
+                    Alfreeda Goff Foundation
                   </a>
                 )}
                 {contentType == 'alfreeda' && (
@@ -139,7 +139,7 @@ export default function TopMenu({
                     onMouseEnter={() => onHover()}
                     onClick={() => onSelect('alfreeda')}
                   >
-                    The Alfreeda Foundation
+                    Alfreeda Goff Foundation
                   </a>
                 )}
               </div>

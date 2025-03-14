@@ -133,7 +133,7 @@ export default function RightColumn({
                 onMouseEnter={() => onHover()}
                 onClick={() => onClickContentType?.('alfreeda')}
               >
-                The Alfreeda Foundation
+                Alfreeda Goff Foundation
               </a>
             )}
             {contentType == 'alfreeda' && (
@@ -142,7 +142,7 @@ export default function RightColumn({
                 onMouseEnter={() => onHover()}
                 onClick={() => onClickContentType?.('alfreeda')}
               >
-                The Alfreeda Foundation
+                Alfreeda Goff Foundation
               </a>
             )}
           </div>
