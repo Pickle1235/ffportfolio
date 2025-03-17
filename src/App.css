@@ -82,6 +82,19 @@ button {
   min-height: 1px;
 }
 
+.bottom {
+  position: absolute;
+  right: 2vw;
+  bottom: 2vh;
+  height: 4vh;
+}
+.bottom-mobile {
+  position: absolute;
+  right: 3vw;
+  bottom: 1.5vh;
+  height: 4vh;
+}
+
 .center-vertical {
   align-items: center;
 }
@@ -108,6 +121,11 @@ button {
 
 .grey-text {
   color: #dfdae0;
+}
+
+.circle-button-color {
+  background-color: #d06051;
+  border: 0.2vw solid rgba(255, 215, 0, 0.9);
 }
 
 .blue-background {

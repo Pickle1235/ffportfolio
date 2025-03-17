@@ -19,12 +19,5 @@
   font-size: 2vh;
 }
 .round-button-mobile button:hover {
-  color: white;
-  border-color: white;
   opacity: 0.8;
-}
-.round-button-mobile button:focus {
-  color: white;
-  border-color: white;
-  outline: none;
 }

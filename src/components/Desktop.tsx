@@ -1,6 +1,7 @@
 import RightColumn from './RightColumn.tsx';
 import LeftColumn from './LeftColumn.tsx';
 import DraggableWindow from './DraggableWindow.tsx';
+import BottomButtons from './BottomButtons.tsx';
 
 export default function Desktop({
   onClickCloseWindow,
@@ -30,6 +31,9 @@ export default function Desktop({
       )}
       {!loading && (
         <div>
+          <div className="bottom">
+            <BottomButtons muted={muted} />
+          </div>
           <div className="main">
             <div className="left">
               <LeftColumn muted={muted} />

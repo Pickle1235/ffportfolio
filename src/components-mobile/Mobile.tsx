@@ -1,6 +1,7 @@
 import TopMenu from './TopMenu.tsx';
 import MainColumn from './MainColumn.tsx';
 import DraggableWindowMobile from './DraggableWindowMobile.tsx';
+import BottomButtons from './BottomButtons.tsx';
 
 export default function Mobile({
   onClickCloseWindow,
@@ -30,6 +31,9 @@ export default function Mobile({
       )}
       {!loading && (
         <div>
+          <div className="bottom-mobile">
+            <BottomButtons muted={muted} />
+          </div>
           <div className="main-mobile">
             <div className="top-mobile">
               <TopMenu
