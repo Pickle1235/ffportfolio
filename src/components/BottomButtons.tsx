@@ -36,21 +36,21 @@ export default function RightColumn({ muted }: { muted: boolean }) {
   return (
     <div className="bottom-buttons">
       <button
-        className="circle-button-button circle-button-color"
+        className="circle-button circle-button-color"
         onMouseEnter={() => onHover()}
         onClick={redirectResume}
       >
         <img className="circle-button-image" src={resumeIcon} />
       </button>
       <button
-        className="circle-button-button circle-button-color"
+        className="circle-button circle-button-color"
         onMouseEnter={() => onHover()}
         onClick={redirectLinkedIn}
       >
         <img className="circle-button-image" src={linkedInIcon} />
       </button>
       <button
-        className="circle-button-button circle-button-color"
+        className="circle-button circle-button-color"
         onMouseEnter={() => onHover()}
         onClick={redirectGitHub}
       >

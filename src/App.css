@@ -124,8 +124,13 @@ button {
 }
 
 .circle-button-color {
-  background-color: #d06051;
-  border: 0.2vw solid rgba(255, 215, 0, 0.9);
+  background-color: transparent;
+  border: 0.2vw solid white;
+}
+
+.circle-button-color-mobile {
+  background-color: transparent;
+  border: 0.5vh solid white;
 }
 
 .blue-background {

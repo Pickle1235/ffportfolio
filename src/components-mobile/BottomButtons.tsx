@@ -34,27 +34,27 @@ export default function RightColumn({ muted }: { muted: boolean }) {
   };
 
   return (
-    <div className="bottom-buttons">
+    <div className="bottom-buttons-mobile">
       <button
-        className="circle-button-button circle-button-color"
+        className="circle-button-mobile circle-button-color-mobile"
         onMouseEnter={() => onHover()}
         onClick={redirectResume}
       >
-        <img className="circle-button-image" src={resumeIcon} />
+        <img className="circle-button-image-mobile" src={resumeIcon} />
       </button>
       <button
-        className="circle-button-button circle-button-color"
+        className="circle-button-mobile circle-button-color-mobile"
         onMouseEnter={() => onHover()}
         onClick={redirectLinkedIn}
       >
-        <img className="circle-button-image" src={linkedInIcon} />
+        <img className="circle-button-image-mobile" src={linkedInIcon} />
       </button>
       <button
-        className="circle-button-button circle-button-color"
+        className="circle-button-mobile circle-button-color-mobile"
         onMouseEnter={() => onHover()}
         onClick={redirectGitHub}
       >
-        <img className="circle-button-image" src={gitHubIcon} />
+        <img className="circle-button-image-mobile" src={gitHubIcon} />
       </button>
     </div>
   );
