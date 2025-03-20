@@ -15,22 +15,33 @@ export default function RightColumn({ muted }: { muted: boolean }) {
     if (!muted) {
       playClickSound();
     }
-    window.location.href =
-      'https://drive.google.com/file/d/10yKRLL3NEnEh-VRon5C7I1fbRgTwzU3D/view?usp=drive_link';
+    window.open(
+      'https://drive.google.com/file/d/10yKRLL3NEnEh-VRon5C7I1fbRgTwzU3D/view?usp=drive_link',
+      '_blank',
+      'noopener,noreferrer',
+    );
   };
 
   const redirectLinkedIn = () => {
     if (!muted) {
       playClickSound();
     }
-    window.location.href = 'https://www.linkedin.com/in/peter-an/';
+    window.open(
+      'https://www.linkedin.com/in/peter-an/',
+      '_blank',
+      'noopener,noreferrer',
+    );
   };
 
   const redirectGitHub = () => {
     if (!muted) {
       playClickSound();
     }
-    window.location.href = 'https://github.com/Pickle1235/';
+    window.open(
+      'https://github.com/Pickle1235/',
+      '_blank',
+      'noopener,noreferrer',
+    );
   };
 
   return (
